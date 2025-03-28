@@ -1,39 +1,30 @@
-@media (prefers-color-scheme: light) {
-  :root {
-    --background: #FFFFFF;
-    --foreground: #171717;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #101010;
-    --foreground: #FFFFFFD9;
-  }
+@font-face {
+  font-family: Inter;
+  src: url('./fonts/Inter_18pt-Regular.ttf') format('truetype');
+  font-weight: 400;
 }
 
 :root {
+  --background: #F5FBFC;
+  --foreground: #546285;
+  --foreground-dark: #08090A;
   --pure-white: #FFFFFF;
-  --primary: #4B71D6;
+  --primary: #35B8BE;
 }
 
 #root {
-  height: 100dvh;
   width: 100dvw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 html,
 body {
   overflow-x: hidden;
   color: var(--foreground);
-  background: var(--background);
+  background: var(--pure-white);
 }
 
 * {
-  font-family: Verdana, serif;
+  font-family: Inter, serif;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
