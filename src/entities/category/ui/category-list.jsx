@@ -8,10 +8,11 @@ export const CategoryList = ({ categories }) => {
         <div className={styles.categoryContainer}>
             {categories.map((category, index) => (
                 <span
+                    key={index}
                     className={activeCategory === index ? styles.active : ''}
                     onClick={() => setActiveCategory(index)}
                 >
-                    Desert
+                    {category}
                 </span>
             ))}
         </div>
