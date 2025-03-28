@@ -1,0 +1,55 @@
+.product {
+    max-width: 36.25rem;
+    outline: 0.063rem solid #35B8BE;
+    border-radius: 0.375rem;
+    background: #FFF;
+    padding: 1.625rem;
+    display: flex;
+    gap: 1.875rem;
+}
+
+.content .contentHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.contentHeader .contentHeaderTitle {
+    color: #08090A;
+    font-size: 1.125rem;
+}
+
+.contentHeader .contentHeaderPrice {
+    color: var(--primary);
+    font-size: 1rem;
+}
+
+.content > p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.content .contentControllers {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.contentControllers > input {
+    text-align: center;
+    border: none;
+    outline: 0.063rem solid #DDD;
+    border-radius: 0.375rem;
+    max-width: 3.75rem;
+    width: 100%;
+    padding: 0.563rem 0;
+}
+
+.contentControllers > button {
+    border: none;
+    cursor: pointer;
+    border-radius: 0.375rem;
+    padding: 0.563rem 1.688rem;
+    color: var(--pure-white);
+    background: var(--primary);
+}

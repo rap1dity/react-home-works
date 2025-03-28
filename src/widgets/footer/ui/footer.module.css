@@ -1,0 +1,89 @@
+.footerContainer {
+    max-width: 90rem;
+    margin: 0 auto;
+    background: var(--background);
+    background-image: url('/assets/clouds.png');
+    background-position: -44rem 7rem;
+    background-repeat: no-repeat;
+    padding: 5rem 0;
+}
+
+.footerContainer .footerMainContent {
+    max-width: 75rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footerMainContent .sloganContainer img {
+    margin-bottom: 1.563rem;
+}
+
+.footerMainContent .sloganContainer p {
+    max-width: 15.313rem;
+    width: 100%;
+    font-size: 1rem;
+
+    & span {
+        font-size: 0.938rem;
+    }
+}
+
+.footerLinksContainer {
+    display: flex;
+    gap: 1rem;
+}
+
+.footerLinks {
+    min-width: 12.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+
+    & > h2 {
+        color: #08090A;
+        font-size: 0.813rem;
+        text-transform: uppercase;
+        letter-spacing: 0.094rem;
+    }
+
+    & > span {
+        width: fit-content;
+        cursor: pointer;
+        font-size: 0.938rem;
+    }
+}
+
+.footerContainer > hr {
+    max-width: 75rem;
+    width: 100%;
+    border: none;
+    margin: 7.5rem auto 4.375rem;
+    height: 0.063rem;
+    background: color-mix(in srgb, #7E828F 9%, transparent);
+}
+
+.footerContainer .footerAdditionalContent {
+    max-width: 75rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footerAdditionalContent > p {
+    font-size: 0.938rem;
+
+    & > span {
+        color: var(--primary);
+    }
+}
+
+.footerAdditionalContent .socialMedia {
+    padding: 0 0.75rem;
+    display: flex;
+    gap: 1.5rem;
+    
+    & > img {
+        cursor: pointer;
+    }
+}
