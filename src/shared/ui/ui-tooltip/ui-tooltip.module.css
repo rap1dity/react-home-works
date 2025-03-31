@@ -1,0 +1,15 @@
+.tooltipContainer {
+    position: relative;
+    color: var(--primary);
+}
+
+.tooltip {
+    position: absolute;
+    top: -2.2rem;
+    right: -5rem;
+    color: #FFF;
+    font-size: 0.875rem;
+    background: var(--primary);
+    padding: 0.625rem;
+    border-radius: 0.5rem;
+}

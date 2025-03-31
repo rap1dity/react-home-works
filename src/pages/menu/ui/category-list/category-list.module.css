@@ -1,0 +1,29 @@
+.categoryContainer {
+    display: flex;
+    gap: 1.875rem;
+    margin-bottom: 2.5rem;
+
+    & > span {
+        position: relative;
+        padding: 1rem 2.875rem;
+        color: #222;
+        cursor: pointer;
+        border: 0.063rem solid color-mix(in srgb, #617283 20%, transparent);
+        border-radius: 0.375rem;
+
+        &.active {
+            color: var(--pure-white);
+            background: var(--primary);
+            border: none;
+
+            &::before {
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #FFF;
+                content: url('/assets/category-wave.svg');
+            }
+        }
+    }
+}
