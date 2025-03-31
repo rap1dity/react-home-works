@@ -7,7 +7,7 @@ import burgerClassic from '/assets/burgers/burger-classic.png';
 import * as styles from './menu-page.module.css'
 import { ProductList } from '@src/entities/product';
 import { UiTooltip } from '@src/shared/ui/ui-tooltip';
-import { CategoryList } from '@src/entities/category';
+import { CategoryList } from './category-list';
 
 const products = [
     { id: '049339e6-a9d9-452b-bfad-4be5e3fa811b', title: 'Burger Dreams', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', price: 9.20, src: burgerDreams, alt: 'Burger'},
@@ -18,7 +18,7 @@ const products = [
     { id: '049339e6-a9d9-452b-bfad-4be5e3fa8116', title: 'Burger Classic', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', price: 8.00, src: burgerClassic, alt: 'Burger'},
 ]
 
-const categories = ['Desert', 'Dinner', 'Breakfast'];
+const categories = ['Dessert', 'Dinner', 'Breakfast'];
 
 export const MenuPage = () => {
     return (

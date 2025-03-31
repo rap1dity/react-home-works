@@ -1,4 +1,4 @@
-import * as styles from "./category-list.module.css";
+import * as styles from "@src/pages/menu/ui/category-list/category-list.module.css";
 import { useState } from "react";
 
 export const CategoryList = ({ categories }) => {
