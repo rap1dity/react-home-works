@@ -6,7 +6,7 @@ import burgerSpicy from '/assets/burgers/burger-spicy.png';
 import burgerClassic from '/assets/burgers/burger-classic.png';
 import * as styles from './menu-page.module.css'
 import { ProductList } from '@src/entities/product';
-import { UiTooltip } from '@src/shared/ui/ui-tooltip/ui-tooltip.jsx';
+import { UiTooltip } from '@src/shared/ui/ui-tooltip';
 import { CategoryList } from '@src/entities/category';
 
 const products = [
