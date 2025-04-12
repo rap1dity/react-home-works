@@ -1,20 +1,32 @@
-import * as styles from "@src/pages/menu/ui/category-list/category-list.module.css";
-import { useState } from "react";
+import * as styles from '@src/pages/menu/ui/category-list/category-list.module.css';
+import React from 'react';
 
-export const CategoryList = ({ categories }) => {
-    const [activeCategory, setActiveCategory] = useState(0);
+export class CategoryList extends React.Component {
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      activeCategory: 0,
+    }
+  }
+
+  setActiveCategory(newCategory) {
+    this.setState({ activeCategory: newCategory });
+  }
+
+  render() {
     return (
-        <div className={styles.categoryContainer}>
-            {categories.map((category, index) => (
-                <span
-                    key={index}
-                    className={activeCategory === index ? styles.active : ''}
-                    onClick={() => setActiveCategory(index)}
-                >
-                    {category}
-                </span>
-            ))}
-        </div>
+      <div className={styles.categoryContainer}>
+        {this.props.categories.map((category, index) => (
+          <button
+            key={index}
+            className={this.state.activeCategory === index ? styles.active : ''}
+            onClick={() => this.setActiveCategory(index)}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
     )
+  }
 }
