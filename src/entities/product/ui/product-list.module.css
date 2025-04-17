@@ -1,8 +1,14 @@
 .productListContainer {
     max-width: 75rem;
+    width: 100%;
     margin-bottom: 2.813rem;
     padding: 0 0.625rem;
     display: grid;
     grid-template-columns: repeat(2, 36.25rem);
     grid-gap: 1.25rem;
+
+    & > .loader {
+        grid-column: span 2;
+        text-align: center;
+    }
 }

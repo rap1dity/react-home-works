@@ -6,9 +6,21 @@
     padding: 1.625rem;
     display: flex;
     gap: 1.875rem;
+
+    & > img {
+        width: 7.5rem;
+        height: 7.5rem;
+    }
 }
 
-.content .contentHeader {
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.generalInfo .contentHeader {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -21,11 +33,18 @@
 }
 
 .contentHeader .contentHeaderPrice {
+    align-self: flex-start;
+    text-wrap: nowrap;
     color: var(--primary);
     font-size: 1rem;
 }
 
-.content > p {
+.generalInfo > p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-size: 1rem;
     margin-bottom: 0.5rem;
 }

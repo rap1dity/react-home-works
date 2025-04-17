@@ -47,10 +47,10 @@
         letter-spacing: 0.094rem;
     }
 
-    & > span {
-        width: fit-content;
-        cursor: pointer;
+    & > a {
         font-size: 0.938rem;
+        text-decoration: none;
+        color: var(--foreground);
     }
 }
 
