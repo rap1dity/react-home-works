@@ -1,16 +1,13 @@
 import * as styles from '@src/pages/menu/ui/category-list/category-list.module.css';
-import React, { useState } from 'react';
 
-export const CategoryList = ({ categories }) => {
-  const [activeCategory, setActiveCategory] = useState(0);
-
+export const CategoryList = ({ activeCategory, setActiveCategory, categories }) => {
   return (
     <div className={styles.categoryContainer}>
       {categories.map((category, index) => (
         <button
           key={index}
-          className={activeCategory === index ? styles.active : ''}
-          onClick={() => setActiveCategory(index)}
+          className={activeCategory === category ? styles.active : ''}
+          onClick={() => setActiveCategory(category)}
         >
           {category}
         </button>
