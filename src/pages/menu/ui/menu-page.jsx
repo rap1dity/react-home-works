@@ -1,5 +1,5 @@
 import * as styles from './menu-page.module.css'
-import { MealList } from '@src/entities/product';
+import { MealList } from '@src/entities/meal';
 import { UiTooltip } from '@src/shared/ui/ui-tooltip';
 import { CategoryList } from './category-list';
 import React, { useState } from 'react';

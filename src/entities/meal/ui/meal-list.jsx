@@ -1,7 +1,6 @@
 import * as styles from './meal-list.module.css';
-import { MealCard } from '@src/entities/product';
 import React from 'react';
-import { useMeals } from '@src/entities/product/model/use-meals.js';
+import { MealCard, useMeals } from '@src/entities/meal';
 
 export const MealList = ({ addToCart, activeCategory }) => {
   const {
