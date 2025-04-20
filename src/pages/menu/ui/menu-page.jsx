@@ -6,23 +6,21 @@ import React from 'react';
 
 const categories = ['Dessert', 'Dinner', 'Breakfast'];
 
-export class MenuPage extends React.Component {
-    render() {
-        return (
-            <main className={styles.menuPageContainer}>
-                <h1>Browse our menu</h1>
-                <div className={styles.description}>
-                    <p>
-                        Use our menu to place an order online, or&nbsp;
-                        <UiTooltip content="+48739238866">
-                            <span>phone</span>
-                        </UiTooltip>
-                        &nbsp;our store to place a pickup order. Fast and fresh food.
-                    </p>
-                </div>
-                <CategoryList categories={categories} />
-                <ProductList addToCart={this.props.addToCart} />
-            </main>
-        )
-    }
+export const MenuPage = ({ addToCart }) => {
+  return (
+    <main className={styles.menuPageContainer}>
+      <h1>Browse our menu</h1>
+      <div className={styles.description}>
+        <p>
+          Use our menu to place an order online, or&nbsp;
+          <UiTooltip content="+48739238866">
+            <span>phone</span>
+          </UiTooltip>
+          &nbsp;our store to place a pickup order. Fast and fresh food.
+        </p>
+      </div>
+      <CategoryList categories={categories}/>
+      <ProductList addToCart={addToCart}/>
+    </main>
+  )
 }
