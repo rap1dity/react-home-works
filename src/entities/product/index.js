@@ -1,2 +1,2 @@
-export { ProductList } from './ui/product-list.jsx';
-export { ProductCard } from './ui/product-card.jsx';
+export { MealList } from './ui/meal-list.jsx';
+export { MealCard } from './ui/meal-card.jsx';

@@ -1,7 +1,7 @@
-import * as styles from '@src/entities/product/ui/product-card.module.css';
+import * as styles from './meal-card.module.css';
 import React, { useState } from 'react';
 
-export const ProductCard = ({ src, alt, title, description, price, addToCart }) => {
+export const MealCard = ({ src, alt, title, description, price, addToCart }) => {
   const [mealCount, setMealCount] = useState(0);
 
   return (
