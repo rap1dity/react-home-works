@@ -1,0 +1,46 @@
+.loginForm {
+    max-width: 39.375rem;
+    width: 100%;
+    padding: 3.75rem 2.5rem;
+    background: var(--pure-white);
+    border-radius: 0.375rem;
+    outline: 0.063rem solid color-mix(in srgb, var(--primary) 15%, transparent);
+}
+
+.loginFormControls {
+    width: fit-content;
+    margin: 2.5rem auto 0;
+
+    & > button {
+        border: none;
+        border-radius: 0.375rem;
+        cursor: pointer;
+        padding: 1rem 2rem;
+    }
+
+    & > .submit {
+        margin-right: 2rem;
+        background: var(--primary);
+        color: var(--pure-white);
+    }
+
+    & > .reset {
+        background: none;
+        outline: 0.063rem solid color-mix(in srgb, #617283 20%, transparent);
+    }
+}
+
+
+.formInputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.563rem;
+
+    & > label {
+        text-wrap: nowrap;
+        color: var(--foreground-dark);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
