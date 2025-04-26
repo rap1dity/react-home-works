@@ -1,5 +1,9 @@
+import { throwApiError } from '@src/shared/api/throw-api-error.js';
+import { authApi } from '@src/shared/api/v1/web/auth';
+
 export class apiFactory {
   constructor(settings) {
+    this.baseUrl = settings?.baseUrl || import.meta.env.VITE_BACKEND_URL;
     this.urlPrefix = settings?.urlPrefix || '';
   }
 
@@ -32,11 +36,11 @@ export class apiFactory {
     return this.request('DELETE', url, config);
   }
 
-  async request(method, url, config = {}) {
+  async request(method, url, config = {}, isRetry) {
     const { headers, query, ...restConfig } = config;
 
     const searchParams = new URLSearchParams(query).toString();
-    const fullUrl = `${import.meta.env.VITE_MEAL_URL}${this.urlPrefix}${url}${searchParams ? `?${searchParams}` : ''}`;
+    const fullUrl = `${this.baseUrl}${this.urlPrefix}${url}${searchParams ? `?${searchParams}` : ''}`;
 
     const response = await fetch(fullUrl, {
       method,
@@ -49,10 +53,57 @@ export class apiFactory {
 
     const data = await response.json();
 
+    if (response.status === 401 && !isRetry) {
+      const success = await this.tryRefreshToken();
+
+      if (success) {
+        return this.request(method, url, config);
+      } else {
+        throw new Error('Unauthorized and refresh token failed');
+      }
+    }
+
     if (!response.ok) {
-      console.log({ data, response });
+      throwApiError({
+        data,
+        response,
+      });
     }
 
     return data;
+  }
+
+  async tryRefreshToken() {
+    const refreshToken = localStorage.getItem('refreshToken');
+
+    if (!refreshToken) {
+      this.clearTokens();
+
+      return false;
+    }
+
+    try {
+      const { accessToken, refreshToken: newRefreshToken } = await authApi.refresh({ refreshToken });
+
+      if (accessToken && newRefreshToken) {
+        localStorage.setItem('accessToken', accessToken);
+
+        localStorage.setItem('refreshToken', newRefreshToken);
+
+        return true;
+      }
+    } catch (err) {
+      console.error('Failed to refresh token', err);
+    }
+
+    this.clearTokens();
+
+    return false;
+  }
+
+  clearTokens() {
+    localStorage.removeItem('accessToken');
+
+    localStorage.removeItem('refreshToken');
   }
 }
