@@ -36,7 +36,7 @@ export class apiFactory {
     return this.request('DELETE', url, config);
   }
 
-  async request(method, url, config = {}, isRetry) {
+  async request(method, url, config = {}) {
     const { headers, query, ...restConfig } = config;
 
     const searchParams = new URLSearchParams(query).toString();
@@ -72,7 +72,7 @@ export class apiFactory {
 
     const statusText = `${response.status} ${response.statusText}`;
 
-    if (response.status === 401 && !isRetry) {
+    if (response.status === 401) {
       const success = await this.tryRefreshToken();
 
       if (success) {
