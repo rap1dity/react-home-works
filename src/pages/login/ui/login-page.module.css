@@ -1,0 +1,28 @@
+.loginPageContainer {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    max-width: 90rem;
+    height: 100%;
+    padding: 6.25rem 7.5rem 8.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3.125rem;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        clip-path: polygon(0% 3.125rem, 100% 0%, 100% 100%, 0% 100%);
+        background: var(--background);
+    }
+
+    & > h2 {
+        font-size: 3.125rem;
+        font-weight: normal;
+        color: var(--primary);
+    }
+}
