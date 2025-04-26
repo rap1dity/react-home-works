@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import * as styles from './app.module.css';
 import { Footer } from '@src/widgets/footer/index.js';
 import { HomePage } from '@src/pages/home';
+import { LoginPage } from '@src/pages/login';
 
 export const App = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -18,6 +19,7 @@ export const App = () => {
       />
       {activeTab === 0 && <HomePage/>}
       {activeTab === 1 && <MenuPage addToCart={setCartItemsCount}/>}
+      {activeTab === 3 && <LoginPage />}
       <Footer/>
     </div>
   )
