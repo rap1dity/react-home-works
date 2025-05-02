@@ -1,13 +1,14 @@
 import { mealsApi } from '@src/shared/api/v1/meals';
 import { useEffect, useState } from 'react';
+import { Meal } from '@src/entities/meal';
 
-export const useMeals = (activeCategory, limit = 6) => {
-  const [meals, setMeals] = useState([]);
+export const useMeals = (activeCategory: string, limit: number = 6) => {
+  const [meals, setMeals] = useState<Meal[]>([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [completed, setCompleted] = useState(false);
 
-  const fetchMeals = async (pageToLoad, reset = false) => {
+  const fetchMeals = async (pageToLoad: number, reset: boolean = false) => {
     try {
       if (reset) {
         setMeals([]);
@@ -23,7 +24,7 @@ export const useMeals = (activeCategory, limit = 6) => {
         category: activeCategory,
       });
 
-      setMeals(prev => reset ? newMeals : [...prev, ...newMeals]);
+      setMeals((prev) => (reset ? newMeals : [...prev, ...newMeals]));
       setCompleted(newMeals.length < limit);
       setPage(pageToLoad + 1);
     } catch (e) {
@@ -43,4 +44,4 @@ export const useMeals = (activeCategory, limit = 6) => {
     completed,
     loadMore: () => fetchMeals(page),
   };
-}
+};

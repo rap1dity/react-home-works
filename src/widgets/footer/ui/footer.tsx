@@ -1,17 +1,18 @@
-import logo from '/assets/logo.svg'
-import instagram from '/assets/instagram.svg'
-import twitter from '/assets/twitter.svg'
-import youtube from '/assets/youtube.svg'
-import * as styles from './footer.module.css'
-import React from 'react';
+import logo from '@assets/logo.svg';
+import instagram from '@assets/instagram.svg';
+import twitter from '@assets/twitter.svg';
+import youtube from '@assets/youtube.svg';
+import styles from './footer.module.css';
 
 export const Footer = () => {
   return (
     <footer className={styles.footerContainer}>
       <div className={styles.footerMainContent}>
         <div className={styles.sloganContainer}>
-          <img src={logo} alt="logo"/>
-          <p>Takeaway & Delivery template <span>for small - medium businesses.</span></p>
+          <img src={logo} alt="logo" />
+          <p>
+            Takeaway & Delivery template <span>for small - medium businesses.</span>
+          </p>
         </div>
         <div className={styles.footerLinksContainer}>
           <div className={styles.footerLinks}>
@@ -42,15 +43,17 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-      <hr/>
+      <hr />
       <div className={styles.footerAdditionalContent}>
-        <p>Built by <span>Flowbase</span>· Powered by <span>Webflow</span></p>
+        <p>
+          Built by <span>Flowbase</span>· Powered by <span>Webflow</span>
+        </p>
         <div className={styles.socialMedia}>
-          <img src={instagram} alt="instagram"/>
-          <img src={twitter} alt="twitter"/>
-          <img src={youtube} alt="youtube"/>
+          <img src={instagram} alt="instagram" />
+          <img src={twitter} alt="twitter" />
+          <img src={youtube} alt="youtube" />
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};

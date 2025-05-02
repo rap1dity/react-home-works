@@ -1,6 +1,6 @@
-import { authApi } from '@src/shared/api/v1/web/auth';
+import { authApi, LoginDTO } from '@src/shared/api/v1/web/auth';
 
-export const login = async (body) => {
+export const login = async (body: LoginDTO) => {
   try {
     const { data } = await authApi.login(body);
 
@@ -8,4 +8,4 @@ export const login = async (body) => {
   } catch (err) {
     console.log(err);
   }
-}
+};

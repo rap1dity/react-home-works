@@ -1,4 +1,4 @@
-import * as styles from './login-page.module.css';
+import styles from './login-page.module.css';
 import { LoginForm } from '@src/features/login';
 
 export const LoginPage = () => {

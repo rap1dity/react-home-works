@@ -1,6 +1,12 @@
-import * as styles from '@src/pages/menu/ui/category-list/category-list.module.css';
+import styles from '@src/pages/menu/ui/category-list/category-list.module.css';
 
-export const CategoryList = ({ activeCategory, setActiveCategory, categories }) => {
+type CategoryListProps = {
+  activeCategory: string;
+  setActiveCategory: (value: string) => void;
+  categories: string[];
+};
+
+export const CategoryList = ({ activeCategory, setActiveCategory, categories }: CategoryListProps) => {
   return (
     <div className={styles.categoryContainer}>
       {categories.map((category, index) => (
@@ -13,5 +19,5 @@ export const CategoryList = ({ activeCategory, setActiveCategory, categories }) 
         </button>
       ))}
     </div>
-  )
-}
+  );
+};

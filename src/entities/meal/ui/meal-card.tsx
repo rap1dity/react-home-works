@@ -1,8 +1,17 @@
-import * as styles from './meal-card.module.css';
-import React, { useState } from 'react';
+import styles from './meal-card.module.css';
+import { ChangeEvent, useState } from 'react';
 
-export const MealCard = ({ src, alt, title, description, price, addToCart }) => {
-  const [mealCount, setMealCount] = useState(0);
+type MealCardProps = {
+  src: string;
+  alt: string;
+  title: string;
+  description: string;
+  price: number;
+  addToCart: (value: number) => void;
+}
+
+export const MealCard = ({ src, alt, title, description, price, addToCart }: MealCardProps) => {
+  const [mealCount, setMealCount] = useState('0');
 
   return (
     <div className={styles.product}>
@@ -23,9 +32,11 @@ export const MealCard = ({ src, alt, title, description, price, addToCart }) => 
             inputMode="numeric"
             value={mealCount}
             pattern="[0-9]*"
-            onInput={(e) => setMealCount(e.target.value.replace(/\D/g, ''))}
+            onInput={(e: ChangeEvent<HTMLInputElement>) => {
+              setMealCount(e.target.value.replace(/\D/g, ''))
+            }}
           />
-          <button onClick={() => addToCart((prev) => prev + Number(mealCount))}>Add to cart</button>
+          <button onClick={() => addToCart(Number(mealCount))}>Add to cart</button>
         </div>
       </div>
     </div>

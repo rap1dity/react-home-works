@@ -1,48 +1,82 @@
-import { throwApiError } from '@src/shared/api/throw-api-error.js';
+import { throwApiError } from '@src/shared/api/throw-api-error.ts';
 import { authApi } from '@src/shared/api/v1/web/auth';
+import { HttpMethod } from '@src/shared/types/http-method.type.ts';
+
+type ApiFactorySettings = {
+  baseUrl?: string;
+  urlPrefix?: string;
+};
+
+type RequestConfig = Omit<RequestInit, 'body'> & {
+  body?: BodyInit;
+  query?: Record<string, unknown>;
+};
 
 export class apiFactory {
-  constructor(settings) {
+  private readonly baseUrl: string;
+  private readonly urlPrefix: string;
+
+  constructor(settings: ApiFactorySettings) {
     this.baseUrl = settings?.baseUrl || import.meta.env.VITE_BACKEND_URL;
     this.urlPrefix = settings?.urlPrefix || '';
   }
 
-  async get(url, config) {
-    return this.request('GET', url, config);
+  async get<TResponse = unknown>(url: string, config?: RequestConfig): Promise<TResponse> {
+    return this.request(HttpMethod.GET, url, config);
   }
 
-  async post(url, body, config) {
-    return this.request('POST', url, {
+  async post<TResponse = unknown, TInput extends Record<string, unknown> = Record<string, unknown>>(
+    url: string,
+    body: TInput,
+    config?: RequestConfig,
+  ): Promise<TResponse> {
+    return this.request(HttpMethod.POST, url, {
       ...config,
       body: JSON.stringify(body),
     });
   }
 
-  async patch(url, body, config) {
-    return this.request('PATCH', url, {
+  async patch<TResponse = unknown, TInput extends Record<string, unknown> = Record<string, unknown>>(
+    url: string,
+    body: TInput,
+    config?: RequestConfig,
+  ): Promise<TResponse> {
+    return this.request(HttpMethod.PATCH, url, {
       ...config,
       body: JSON.stringify(body),
     });
   }
 
-  async put(url, body, config) {
-    return this.request('PUT', url, {
+  async put<TResponse = unknown, TInput extends Record<string, unknown> = Record<string, unknown>>(
+    url: string,
+    body: TInput,
+    config?: RequestConfig,
+  ): Promise<TResponse> {
+    return this.request(HttpMethod.PUT, url, {
       ...config,
       body: JSON.stringify(body),
     });
   }
 
-  async delete(url, config) {
-    return this.request('DELETE', url, config);
+  async delete<TResponse = unknown>(url: string, config?: RequestConfig): Promise<TResponse> {
+    return this.request(HttpMethod.DELETE, url, config);
   }
 
-  async request(method, url, config = {}) {
+  async request<TResponse>(method: HttpMethod, url: string, config: RequestConfig = {}): Promise<TResponse> {
     const { headers, query, ...restConfig } = config;
 
-    const searchParams = new URLSearchParams(query).toString();
+    const searchParams = new URLSearchParams();
+
+    if (query) {
+      for (const [key, value] of Object.entries(query)) {
+        searchParams.append(key, String(value));
+      }
+    }
+
     const fullUrl = `${this.baseUrl}${this.urlPrefix}${url}${searchParams ? `?${searchParams}` : ''}`;
 
     console.log('%c[fetch request]', 'color: #4B71D6', method, fullUrl);
+
     if (headers) {
       console.log('headers:', headers);
     }
@@ -52,9 +86,9 @@ export class apiFactory {
     }
 
     if (restConfig.body) {
-      try {
+      if (typeof restConfig.body === 'string') {
         console.log('body:', JSON.parse(restConfig.body));
-      } catch {
+      } else {
         console.log('body:', restConfig.body);
       }
     }
@@ -100,7 +134,7 @@ export class apiFactory {
     return data;
   }
 
-  saveToLocalStorage(path, body, status) {
+  saveToLocalStorage(path: string, body: unknown, status: number) {
     try {
       const payload = {
         path,
@@ -124,7 +158,9 @@ export class apiFactory {
     }
 
     try {
-      const { accessToken, refreshToken: newRefreshToken } = await authApi.refresh({ refreshToken });
+      const { data } = await authApi.refresh({ refreshToken });
+
+      const { accessToken, refreshToken: newRefreshToken } = data;
 
       if (accessToken && newRefreshToken) {
         localStorage.setItem('accessToken', accessToken);

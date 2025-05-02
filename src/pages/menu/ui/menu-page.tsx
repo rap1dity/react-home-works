@@ -1,12 +1,16 @@
-import * as styles from './menu-page.module.css'
+import styles from './menu-page.module.css';
 import { MealList } from '@src/entities/meal';
 import { UiTooltip } from '@src/shared/ui/ui-tooltip';
 import { CategoryList } from './category-list';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const categories = ['Dessert', 'Dinner', 'Breakfast'];
 
-export const MenuPage = ({ addToCart }) => {
+type MenuPageProps = {
+  addToCart: (value: number) => void;
+};
+
+export const MenuPage = ({ addToCart }: MenuPageProps) => {
   const [activeCategory, setActiveCategory] = useState(categories[0]);
 
   return (
@@ -21,8 +25,8 @@ export const MenuPage = ({ addToCart }) => {
           &nbsp;our store to place a pickup order. Fast and fresh food.
         </p>
       </div>
-      <CategoryList activeCategory={activeCategory} setActiveCategory={setActiveCategory} categories={categories}/>
-      <MealList activeCategory={activeCategory} addToCart={addToCart}/>
+      <CategoryList activeCategory={activeCategory} setActiveCategory={setActiveCategory} categories={categories} />
+      <MealList activeCategory={activeCategory} addToCart={addToCart} />
     </main>
-  )
-}
+  );
+};

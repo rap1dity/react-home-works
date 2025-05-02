@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import { PropsWithChildren, useState } from 'react';
 import styles from './ui-tooltip.module.css';
 
-export const UiTooltip = ({ content, children }) => {
+type UiTooltipProps = PropsWithChildren & {
+  content: string;
+}
+
+export const UiTooltip = ({ content, children }: UiTooltipProps) => {
   const [visible, setVisible] = useState(false);
 
   return (
