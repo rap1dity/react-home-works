@@ -50,7 +50,7 @@
     top: 50%;
     transform: translateY(-50%);
     color: #FFF;
-    content: url('/assets/cart-wave.svg');
+    content: url('/src/shared/assets/cart-wave.svg');
 }
 
 .cartContainer::after {
