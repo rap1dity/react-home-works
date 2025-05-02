@@ -88,6 +88,7 @@ export class apiFactory {
     } else {
       console.error('%c[fetch response]', 'color #E84945', statusText);
       console.error('error:', data);
+
       throwApiError({
         data,
         response,
