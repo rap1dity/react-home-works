@@ -1,6 +1,6 @@
 import { mealsApi } from '@src/shared/api/v1/meals';
 import { useEffect, useState } from 'react';
-import { Meal } from '@src/entities/meal';
+import { Meal } from '@src/shared/types/meals.type.ts';
 
 export const useMeals = (activeCategory: string, limit: number = 6) => {
   const [meals, setMeals] = useState<Meal[]>([]);

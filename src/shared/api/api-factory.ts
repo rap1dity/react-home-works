@@ -1,6 +1,8 @@
 import { throwApiError } from '@src/shared/api/throw-api-error.ts';
 import { authApi } from '@src/shared/api/v1/web/auth';
 import { HttpMethod } from '@src/shared/types/http-method.type.ts';
+import { store } from '@src/app/providers/store/config';
+import { setUnauthorized } from '@src/entities/auth';
 
 type ApiFactorySettings = {
   baseUrl?: string;
@@ -153,6 +155,8 @@ export class apiFactory {
 
     if (!refreshToken) {
       this.clearTokens();
+
+      store.dispatch(setUnauthorized());
 
       return false;
     }

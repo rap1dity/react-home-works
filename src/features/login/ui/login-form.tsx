@@ -2,10 +2,13 @@ import styles from './login-form.module.css';
 import { UiInput } from '@src/shared/ui/ui-input';
 import { FormEvent, useState } from 'react';
 import { login } from '@src/features/login';
+import { useDispatch } from 'react-redux';
+import { setAuthorized } from '@src/entities/auth';
 
 export const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
 
   const submitForm = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -15,6 +18,8 @@ export const LoginForm = () => {
     if (!data) {
       return;
     }
+
+    dispatch(setAuthorized());
 
     localStorage.setItem('accessToken', data.accessToken);
     localStorage.setItem('refreshToken', data.refreshToken);
