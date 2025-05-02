@@ -1,4 +1,6 @@
-.homePageContainer {
+import styled from 'styled-components';
+
+export const HomePageContainer = styled.main`
     position: relative;
     z-index: 1;
     margin: 0 auto;
@@ -17,9 +19,9 @@
         clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 11rem 34.625rem);
         background: var(--background);
     }
-}
+`;
 
-.homePageContainer .content {
+export const Content = styled.div`
     & > h1 {
         font-size: 3.75rem;
         font-weight: normal;
@@ -57,9 +59,9 @@
             content: url('/assets/category-wave.svg');
         }
     }
-}
+`;
 
-.content .trustpilotRating {
+export const TrustpilotRating = styled.div`
     & > img {
         margin-bottom: 0.625rem;
     }
@@ -71,4 +73,4 @@
             color: var(--primary);
         }
     }
-}
+`;
