@@ -1,4 +1,4 @@
-import { mealsApi } from '@src/shared/api/v1/meals/index.js';
+import { mealsApi } from '@src/shared/api/v1/meals';
 import { useEffect, useState } from 'react';
 
 export const useMeals = (activeCategory, limit = 6) => {
