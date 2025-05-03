@@ -6,7 +6,7 @@
     & > button {
         position: relative;
         padding: 1rem 2.875rem;
-        color: #222;
+        color: var(--foreground-dark);
         cursor: pointer;
         background: none;
         outline: 0.063rem solid color-mix(in srgb, #617283 20%, transparent);
@@ -22,7 +22,7 @@
                 left: 0;
                 top: 50%;
                 transform: translateY(-50%);
-                color: #FFF;
+                color: var(--pure-white);
                 content: url('/assets/category-wave.svg');
             }
         }
