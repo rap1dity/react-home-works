@@ -1,0 +1,7 @@
+.orderMealListContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 73.75rem;
+    width: 100%;
+}

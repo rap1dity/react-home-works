@@ -12,9 +12,7 @@ export const MealList = () => {
         {!meals.length && loading ? (
           <p className={styles.loader}>Data loading...</p>
         ) : (
-          meals.map(({ id, img, category, meal, instructions, price }) => (
-            <MealCard key={id} src={img} alt={category} title={meal} description={instructions} price={price} />
-          ))
+          meals.map((meal) => <MealCard key={meal.id} meal={meal} />)
         )}
       </div>
       {!completed && !loading && <button onClick={loadMore}>See more</button>}

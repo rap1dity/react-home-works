@@ -2,29 +2,26 @@ import styles from './meal-card.module.css';
 import { ChangeEvent, useState } from 'react';
 import { addToCart } from '@src/entities/cart';
 import { useDispatch } from 'react-redux';
+import { Meal } from '@src/shared/types/meals.type.ts';
 
 type MealCardProps = {
-  src: string;
-  alt: string;
-  title: string;
-  description: string;
-  price: number;
+  meal: Meal;
 };
 
-export const MealCard = ({ src, alt, title, description, price }: MealCardProps) => {
+export const MealCard = ({ meal }: MealCardProps) => {
   const [mealCount, setMealCount] = useState('0');
   const dispatch = useDispatch();
 
   return (
     <div className={styles.product}>
-      <img src={src} alt={alt} />
+      <img src={meal.img} alt={meal.meal} />
       <div className={styles.content}>
         <div className={styles.generalInfo}>
           <div className={styles.contentHeader}>
-            <span className={styles.contentHeaderTitle}>{title}</span>
-            <span className={styles.contentHeaderPrice}>$ {price.toFixed(2)} USD</span>
+            <span className={styles.contentHeaderTitle}>{meal.meal}</span>
+            <span className={styles.contentHeaderPrice}>$ {meal.price.toFixed(2)} USD</span>
           </div>
-          <p>{description}</p>
+          <p>{meal.instructions}</p>
         </div>
         <div className={styles.contentControllers}>
           <input
@@ -36,7 +33,7 @@ export const MealCard = ({ src, alt, title, description, price }: MealCardProps)
               setMealCount(e.target.value.replace(/\D/g, ''));
             }}
           />
-          <button onClick={() => dispatch(addToCart(+mealCount))}>Add to cart</button>
+          <button onClick={() => dispatch(addToCart({ meal, count: +mealCount }))}>Add to cart</button>
         </div>
       </div>
     </div>

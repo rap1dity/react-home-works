@@ -4,10 +4,12 @@ import { FormEvent, useState } from 'react';
 import { login } from '@src/features/login';
 import { useDispatch } from 'react-redux';
 import { setAuthorized } from '@src/entities/auth';
+import { useNavigate } from 'react-router-dom';
 
 export const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const submitForm = async (e: FormEvent<HTMLFormElement>) => {
@@ -23,6 +25,8 @@ export const LoginForm = () => {
 
     localStorage.setItem('accessToken', data.accessToken);
     localStorage.setItem('refreshToken', data.refreshToken);
+
+    navigate('/', { replace: true });
   };
 
   const resetForm = (e: FormEvent<HTMLFormElement>) => {
