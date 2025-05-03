@@ -4,12 +4,22 @@
   font-weight: 400;
 }
 
-:root {
+:root[data-theme='light'] {
   --background: #F5FBFC;
   --foreground: #546285;
   --foreground-dark: #08090A;
   --pure-white: #FFFFFF;
   --primary: #35B8BE;
+  --header-color: #28224B;
+}
+
+:root[data-theme='dark'] {
+  --background: #101010;
+  --foreground: #FFFFFFD9;
+  --foreground-dark: #F7F6F5;
+  --pure-white: #000000;
+  --primary: #4B71D6;
+  --header-color: #FFFFFFD9;
 }
 
 #root {
