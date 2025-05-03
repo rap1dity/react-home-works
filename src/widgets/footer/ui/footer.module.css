@@ -2,7 +2,7 @@
     max-width: 90rem;
     margin: 0 auto;
     background: var(--background);
-    background-image: url('/assets/clouds.png');
+    background-image: url('/src/shared/assets/clouds.png');
     background-position: -41.625rem 7.125rem;
     background-repeat: no-repeat;
     padding: 5rem 0;
