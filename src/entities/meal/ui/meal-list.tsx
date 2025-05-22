@@ -1,12 +1,9 @@
 import styles from './meal-list.module.css';
 import { MealCard, useMeals } from '@src/entities/meal';
+import { useSelector } from 'react-redux';
 
-type MealListProps = {
-  addToCart: (value: number) => void;
-  activeCategory: string;
-};
-
-export const MealList = ({ addToCart, activeCategory }: MealListProps) => {
+export const MealList = () => {
+  const activeCategory = useSelector((store: { menu: { category: string } }) => store.menu.category);
   const { meals, loading, completed, loadMore } = useMeals(activeCategory);
 
   return (
@@ -15,17 +12,7 @@ export const MealList = ({ addToCart, activeCategory }: MealListProps) => {
         {!meals.length && loading ? (
           <p className={styles.loader}>Data loading...</p>
         ) : (
-          meals.map(({ id, img, category, meal, instructions, price }) => (
-            <MealCard
-              key={id}
-              src={img}
-              alt={category}
-              title={meal}
-              description={instructions}
-              price={price}
-              addToCart={addToCart}
-            />
-          ))
+          meals.map((meal) => <MealCard key={meal.id} meal={meal} />)
         )}
       </div>
       {!completed && !loading && <button onClick={loadMore}>See more</button>}

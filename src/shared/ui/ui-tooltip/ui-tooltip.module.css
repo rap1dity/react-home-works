@@ -7,7 +7,7 @@
     position: absolute;
     top: -2.2rem;
     right: -5rem;
-    color: #FFF;
+    color: var(--pure-white);
     font-size: 0.875rem;
     background: var(--primary);
     padding: 0.625rem;
