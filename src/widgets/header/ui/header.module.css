@@ -16,14 +16,15 @@
 }
 
 .navMenu {
-    color: #28224B;
     display: flex;
     justify-content: center;
     align-content: center;
     margin-right: 4.813rem;
 }
 
-.navMenu span {
+.navMenu a {
+    text-decoration: none;
+    color: #28224B;
     padding: 1rem 1.25rem;
     cursor: pointer;
 
