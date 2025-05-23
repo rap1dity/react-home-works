@@ -2,17 +2,8 @@ import styles from './menu-page.module.css';
 import { MealList } from '@src/entities/meal';
 import { UiTooltip } from '@src/shared/ui/ui-tooltip';
 import { CategoryList } from './category-list';
-import { useState } from 'react';
 
-const categories = ['Dessert', 'Dinner', 'Breakfast'];
-
-type MenuPageProps = {
-  addToCart: (value: number) => void;
-};
-
-export const MenuPage = ({ addToCart }: MenuPageProps) => {
-  const [activeCategory, setActiveCategory] = useState(categories[0]);
-
+export const MenuPage = () => {
   return (
     <main className={styles.menuPageContainer}>
       <h1>Browse our menu</h1>
@@ -25,8 +16,8 @@ export const MenuPage = ({ addToCart }: MenuPageProps) => {
           &nbsp;our store to place a pickup order. Fast and fresh food.
         </p>
       </div>
-      <CategoryList activeCategory={activeCategory} setActiveCategory={setActiveCategory} categories={categories} />
-      <MealList activeCategory={activeCategory} addToCart={addToCart} />
+      <CategoryList />
+      <MealList />
     </main>
   );
 };

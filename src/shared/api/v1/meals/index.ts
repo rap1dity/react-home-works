@@ -1,5 +1,5 @@
 import { v1MealApi } from '@src/shared/api/v1/instance.ts';
-import { Meal } from '@src/entities/meal';
+import { Meal } from '@src/shared/types/meals.type.ts';
 
 export type GetMealsRTO = Meal[];
 
