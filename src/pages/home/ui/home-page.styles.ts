@@ -55,7 +55,7 @@ export const Content = styled.div`
       left: 0;
       top: 50%;
       transform: translateY(-50%);
-      color: #fff;
+      color: var(--pure-white);
       content: url('/src/shared/assets/category-wave.svg');
     }
   }
