@@ -1,8 +1,8 @@
 .product {
     max-width: 36.25rem;
-    outline: 0.063rem solid #35B8BE;
+    outline: 0.063rem solid var(--primary);
     border-radius: 0.375rem;
-    background: #FFF;
+    background: var(--pure-white);
     padding: 1.625rem;
     display: flex;
     gap: 1.875rem;
@@ -28,7 +28,7 @@
 }
 
 .contentHeader .contentHeaderTitle {
-    color: #08090A;
+    color: var(--foreground-dark);
     font-size: 1.125rem;
 }
 
