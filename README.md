@@ -17,3 +17,9 @@
 - [`features`](./src/features) — взаимодействия с пользователем, действия, которые несут бизнес-ценность для пользователя. (например, SendComment, AddToCart, UsersSearch)
 - [`entities`](./src/entities) — бизнес-сущности. (например, User, Product, Order)
 - [`shared`](./src/shared) — переиспользуемый код, не имеющий отношения к специфике приложения/бизнеса. (например, UIKit, libs, API)
+
+## Запуск тестов
+
+```bash
+npm test
+```
