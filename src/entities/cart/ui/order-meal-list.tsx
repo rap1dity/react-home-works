@@ -10,7 +10,7 @@ export const OrderMealList = ({ meals }: OrderMealListProps) => {
   return (
     <div className={styles.orderMealListContainer}>
       {meals.map(({ meal, quantity }) => (
-        <OrderMealCard meal={meal} quantity={quantity} />
+        <OrderMealCard key={meal.id} meal={meal} quantity={quantity} />
       ))}
     </div>
   );

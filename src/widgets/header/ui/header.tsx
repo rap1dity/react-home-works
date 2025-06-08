@@ -34,7 +34,7 @@ export const Header = () => {
           <button className={styles.navThemeToggle} onClick={toggleTheme}>
             {theme === 'light' ? 'Dark' : 'Light'} theme
           </button>
-          <div data-count={cartItemsCount} className={styles.cartContainer}>
+          <div data-count={cartItemsCount} data-testid="cart-count" className={styles.cartContainer}>
             <img src={cart} alt="cart" />
           </div>
         </div>
